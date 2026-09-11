@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TalkRoom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LANDING: create or join a room -->
+  <section id="landing" class="landing">
+    <div class="landing-card">
+      <p class="eyebrow">talkroom</p>
+      <h1>Step into a room,<br>not a login screen.</h1>
+      <p class="sub">No username. No phone number. Just a room code you share.</p>
+
+      <button id="createRoomBtn" class="btn btn-primary">Start a new room</button>
+
+      <div class="divider"><span>or join one</span></div>
+
+      <form id="joinForm" class="join-form">
+        <input id="roomCodeInput" type="text" placeholder="Enter-Room-Code" autocomplete="off">
+        <button type="submit" class="btn btn-secondary">Join</button>
+      </form>
+      <p id="landingError" class="error-text" hidden></p>
+    </div>
+  </section>
+
+  <!-- ROOM: the one panel for chat + call -->
+  <section id="room" class="room" hidden>
+    <header class="room-header">
+      <div class="room-id-wrap">
+        <span class="dot" id="statusDot"></span>
+        <span class="room-id" id="roomCodeLabel">—</span>
+        <button id="copyLinkBtn" class="chip-btn" title="Copy invite link">Copy invite</button>
+      </div>
+      <div class="header-right">
+        <span class="you-are">You're <strong id="selfName">—</strong></span>
+        <button id="leaveBtn" class="chip-btn chip-btn-danger">Leave</button>
+      </div>
+    </header>
+
+    <div class="video-strip" id="videoStrip" hidden></div>
+
+    <main class="messages" id="messages"></main>
+
+    <footer class="composer">
+      <button id="callToggleBtn" class="call-btn" title="Start call">
+        <span id="callBtnIcon">&#9742;</span>
+        <span id="callBtnLabel">Call</span>
+      </button>
+      <button id="micToggleBtn" class="icon-btn" title="Mute" hidden>&#127908;</button>
+      <button id="camToggleBtn" class="icon-btn" title="Camera off" hidden>&#127909;</button>
+      <input id="messageInput" type="text" placeholder="Write a message..." autocomplete="off">
+      <button id="sendBtn" class="btn btn-primary btn-send">Send</button>
+    </footer>
+  </section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+</body>
+</html>

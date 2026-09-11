@@ -1,0 +1,13 @@
+{
+  "name": "talkroom",
+  "version": "1.0.0",
+  "description": "Small-group chat and call room - no usernames or phone numbers required",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}
